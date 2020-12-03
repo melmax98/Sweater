@@ -33,7 +33,7 @@ public class MainController {
 
 	@GetMapping("/main")
 	public String main(@RequestParam(required = false, defaultValue = "") String filter, Model model) {
-		Iterable<Message> messages = messageRepo.findAll();
+		Iterable<Message> messages;
 
 		if (filter != null && !filter.isEmpty()) {
 			messages = messageRepo.findByTag(filter);
@@ -66,7 +66,7 @@ public class MainController {
 			String resultFilename = uuidFile + "." + file.getOriginalFilename();
 			message.setFilename(resultFilename);
 
-			file.transferTo(new File(uploadPath + "/" + resultFilename));
+			file.transferTo(new File(uploadPath + File.separator + resultFilename));
 		}
 
 		messageRepo.save(message);
