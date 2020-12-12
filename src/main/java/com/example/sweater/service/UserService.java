@@ -72,7 +72,6 @@ public class UserService implements UserDetailsService {
         }
 
         user.setActivationCode(null);
-        user.setPassword2(user.getPassword());
         userRepo.save(user);
 
         return true;

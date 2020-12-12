@@ -37,10 +37,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .formLogin()
                     .loginPage("/login")
-                .permitAll()
-                    .and()
+                    .permitAll()
+                .and()
+                    .rememberMe()
+                .and()
                     .logout()
-                .permitAll();
+                    .permitAll();
     }
 
     @Override
