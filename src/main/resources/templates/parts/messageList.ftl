@@ -1,7 +1,10 @@
 <#include "security.ftl">
+<#import "pager.ftl" as p>
+
+<@p.pager url page />
 
 <div class="card-columns" id="message-list">
-    <#list messages as message>
+    <#list page.content as message>
         <div class="card my-3" data-id="${message.getId()}">
             <div>
                 <#if message.filename??>
@@ -29,3 +32,4 @@
         No message
     </#list>
 </div>
+<@p.pager url page />
